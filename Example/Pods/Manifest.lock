@@ -1,0 +1,16 @@
+PODS:
+  - MSYTableView (0.1.0)
+
+DEPENDENCIES:
+  - MSYTableView (from `../`)
+
+EXTERNAL SOURCES:
+  MSYTableView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MSYTableView: 27f3dc4f32d9d1561d81541eb672b12adbbe3270
+
+PODFILE CHECKSUM: c00d19f4699c2ec2aabe86732b3745c3f214cc62
+
+COCOAPODS: 1.10.1

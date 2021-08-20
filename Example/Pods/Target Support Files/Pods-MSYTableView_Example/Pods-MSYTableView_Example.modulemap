@@ -1,0 +1,6 @@
+framework module Pods_MSYTableView_Example {
+  umbrella header "Pods-MSYTableView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

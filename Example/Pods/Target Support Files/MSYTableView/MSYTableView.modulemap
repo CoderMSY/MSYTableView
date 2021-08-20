@@ -1,0 +1,6 @@
+framework module MSYTableView {
+  umbrella header "MSYTableView-umbrella.h"
+
+  export *
+  module * { export * }
+}

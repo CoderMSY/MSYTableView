@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'MSYTableView_Example' do
+  pod 'MSYTableView', :path => '../'
+
+  target 'MSYTableView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
