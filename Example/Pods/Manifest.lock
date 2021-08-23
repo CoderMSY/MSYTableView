@@ -1,15 +1,26 @@
 PODS:
-  - MSYTableView (0.1.0)
+  - Masonry (1.1.0)
+  - MJRefresh (3.5.0)
+  - MSYTableView (0.1.0):
+    - Masonry
+    - MJRefresh
 
 DEPENDENCIES:
   - MSYTableView (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+    - MJRefresh
 
 EXTERNAL SOURCES:
   MSYTableView:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MSYTableView: 27f3dc4f32d9d1561d81541eb672b12adbbe3270
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  MSYTableView: b6dde52f34298ed798ffaf1fb9a719b2d2c90516
 
 PODFILE CHECKSUM: c00d19f4699c2ec2aabe86732b3745c3f214cc62
 

@@ -7,12 +7,19 @@
 //
 
 #import "MSYAppDelegate.h"
+#import "MSYViewController.h"
 
 @implementation MSYAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    MSYViewController *ctr = [[MSYViewController alloc] init];
+    UINavigationController *navCtr = [[UINavigationController alloc] initWithRootViewController:ctr];
+    navCtr.navigationBar.translucent = NO;
+    self.window.rootViewController = navCtr;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

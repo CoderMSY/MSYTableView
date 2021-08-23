@@ -18,5 +18,13 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "MSYTableView/Classes/**/*"
+  "source_files": "MSYTableView/Classes/**/*",
+  "dependencies": {
+    "Masonry": [
+
+    ],
+    "MJRefresh": [
+
+    ]
+  }
 }

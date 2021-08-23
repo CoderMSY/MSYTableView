@@ -10,6 +10,15 @@
 #endif
 #endif
 
+#import "MSYBaseTableViewCell.h"
+#import "MSYTableViewCellProtocol.h"
+#import "MSYBaseTableViewHeaderFooterView.h"
+#import "MSYTableViewHeaderFooterProtocol.h"
+#import "MSYCommonTableData.h"
+#import "MSYCommonTableView.h"
+#import "MSYTableViewAdapter.h"
+#import "MSYTableViewProtocol.h"
+#import "UIView+MSYKit.h"
 
 FOUNDATION_EXPORT double MSYTableViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char MSYTableViewVersionString[];
