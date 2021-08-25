@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, MSYExampleType) {
     MSYExampleType_system,
     MSYExampleType_custom,
+    MSYExampleType_refresh,
 };
 
 @interface MSYExampleViewController : UIViewController

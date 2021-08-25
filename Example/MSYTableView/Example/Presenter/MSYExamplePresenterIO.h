@@ -10,11 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MSYCommonTableSection;
 @protocol MSYExamplePresenterInput <NSObject>
 
 - (void)fetchSystemTypeDataSource;
 
 - (void)fetchCustomTypeDataSource;
+- (MSYCommonTableSection *)fetchRefreshTypeDataWithPageIndex:(NSInteger)pageIndex;
 
 @end
 

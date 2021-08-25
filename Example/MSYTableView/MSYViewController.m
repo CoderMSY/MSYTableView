@@ -16,6 +16,7 @@
 
 static NSString *const kTitle_system = @"系统自带cell";
 static NSString *const kTitle_custom = @"自定义的cell";
+static NSString *const kTitle_refresh = @"上拉下拉的cell";
 
 @interface MSYViewController () <MSYTableViewProtocol>
 
@@ -49,7 +50,7 @@ static NSString *const kTitle_custom = @"自定义的cell";
 
 - (void)loadDataSource {
     
-    NSArray *historyList = @[kTitle_system, kTitle_custom];
+    NSArray *historyList = @[kTitle_system, kTitle_custom, kTitle_refresh];
     
     NSMutableArray *sectionDicArr = [NSMutableArray arrayWithCapacity:0];
     NSMutableArray *rowDicArr = [NSMutableArray arrayWithCapacity:0];
@@ -83,13 +84,22 @@ static NSString *const kTitle_custom = @"自定义的cell";
     
     if ([rowModel.title isEqualToString:kTitle_system]) {
         MSYExampleViewController *ctr = [[MSYExampleViewController alloc] init];
+        ctr.title = rowModel.title;
         ctr.exampleType = MSYExampleType_system;
         
         [self.navigationController pushViewController:ctr animated:YES];
     }
     else if ([rowModel.title isEqualToString:kTitle_custom]) {
         MSYExampleViewController *ctr = [[MSYExampleViewController alloc] init];
+        ctr.title = rowModel.title;
         ctr.exampleType = MSYExampleType_custom;
+        
+        [self.navigationController pushViewController:ctr animated:YES];
+    }
+    else if ([rowModel.title isEqualToString:kTitle_refresh]) {
+        MSYExampleViewController *ctr = [[MSYExampleViewController alloc] init];
+        ctr.title = rowModel.title;
+        ctr.exampleType = MSYExampleType_refresh;
         
         [self.navigationController pushViewController:ctr animated:YES];
     }

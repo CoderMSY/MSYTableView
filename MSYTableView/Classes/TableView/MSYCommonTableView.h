@@ -87,6 +87,10 @@
  */
 - (void)stopFooterRefreshingStateWithIsHadContent:(BOOL)isHadContent;
 
+/// 结束尾部刷新并显示无更多内容
+/// @param isHadContent 是否有数据
+- (void)stopFooterRefreshingWithNoMoreDataIsHadContent:(BOOL)isHadContent;
+
 
 /**
  根据tableView获取当前的cell所在的indexPath

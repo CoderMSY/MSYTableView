@@ -13,6 +13,8 @@
 #import "MSYTableViewAdapter.h"
 #import "MSYCommonTableData.h"
 
+static NSUInteger const kTable_firstPageIndex = 0;
+
 @interface MSYCommonTableView ()
 {
     NSUInteger _pageIndex;
@@ -51,7 +53,7 @@
                     cellStyle:(UITableViewCellStyle)cellStyle {
     self = [super init];
     if (self) {
-        _pageIndex = 1;
+        _pageIndex = kTable_firstPageIndex;
         self.tableViewStyle = style;
         self.adapter.tableViewCellStyle = cellStyle;
         [self addSubview:self.tableView];
@@ -135,6 +137,10 @@
     
     if (isNeedFooterRefresh) {
         self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshAction)];
+        if (@available(iOS 11.0, *)) {
+            CGFloat safeBottom = [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom;
+            self.tableView.mj_footer.ignoredScrollViewContentInsetBottom = safeBottom;
+        }
     }
 }
 
@@ -154,7 +160,6 @@
 //}
 
 - (void)resignCommonTableViewFirstResponder {
-//    [self.tableView endEditing:YES];
     [self hideKeyboard];
 }
 
@@ -169,9 +174,22 @@
 - (void)stopFooterRefreshingStateWithIsHadContent:(BOOL)isHadContent {
     [self.tableView.mj_footer endRefreshing];
     if (!isHadContent) {
-        if (_pageIndex > 1) {
+        if (_pageIndex > kTable_firstPageIndex) {
             _pageIndex --;//没有刷新到数据，应减1
         }
+    }
+}
+
+- (void)stopFooterRefreshingWithNoMoreDataIsHadContent:(BOOL)isHadContent {
+    if (!isHadContent) {
+        [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        
+        if (_pageIndex > kTable_firstPageIndex) {
+            _pageIndex --;//没有刷新到数据，应减1
+        }
+    }
+    else {
+        [self.tableView.mj_footer endRefreshing];
     }
 }
 
@@ -255,7 +273,7 @@
 }
 
 - (void)headerRefreshAction {
-    _pageIndex = 1;
+    _pageIndex = kTable_firstPageIndex;
     [self.tableView.mj_footer resetNoMoreData];
     if ([_delegate respondsToSelector:@selector(commonTableView:headerRefreshActionWithPage:)] ) {
         [_delegate commonTableView:self headerRefreshActionWithPage:_pageIndex];

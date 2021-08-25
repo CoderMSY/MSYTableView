@@ -68,4 +68,39 @@
     [self.output renderDataSource:sections];
 }
 
+- (MSYCommonTableSection *)fetchRefreshTypeDataWithPageIndex:(NSInteger)pageIndex {
+    if (3 == pageIndex) {
+        return nil;
+    }
+    
+    NSMutableArray *rowDicArr = [NSMutableArray arrayWithCapacity:0];
+    for (NSInteger i = 0; i < 10; i ++) {
+        NSString *title = [NSString stringWithFormat:@"text:%ld", (long)i];
+        NSDictionary *rowDic = @{
+            kRow_title : title ? : @"",
+            kRow_detailTitle : @"",
+            kRow_rowHeight : @(44),
+        };
+        [rowDicArr addObject:rowDic];
+    }
+    
+    NSString *headerTitle = [NSString stringWithFormat:@"第%ld页", (long)pageIndex];
+    NSMutableDictionary *sectionDic = [NSMutableDictionary dictionaryWithDictionary:@{
+        kSec_headerTitle : headerTitle,
+        kSec_rowContent : rowDicArr,
+        kSec_footerHeight : @(kSectionHeaderHeight_zero),
+    }];
+//    if (isHeader) {
+//        sectionDic[kSec_headerTitle] = @"上拉下拉刷新案例";
+//        sectionDic[kSec_headerHeight] = @(33);
+//    }
+//    else {
+//        sectionDic[kSec_headerHeight] = @(kSectionHeaderHeight_zero);
+//    }
+    
+    MSYCommonTableSection *sectionModel = [[MSYCommonTableSection alloc] initWithDict:sectionDic];
+    
+    return sectionModel;
+}
+
 @end
