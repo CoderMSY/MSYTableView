@@ -17,23 +17,29 @@
 
 - (void)fetchSystemTypeDataSource {
     NSMutableArray *sectionDicArr = [NSMutableArray arrayWithCapacity:0];
-    NSMutableArray *rowDicArr = [NSMutableArray arrayWithCapacity:0];
-    
-    for (NSInteger i = 0; i < 10; i ++) {
-        NSString *title = [NSString stringWithFormat:@"text:%ld", (long)i];
-        NSDictionary *rowDic = @{
-            kRow_title : title ? : @"",
-            kRow_detailTitle : @"",
-            kRow_rowHeight : @(44),
+    for (NSInteger i = 0; i < 3; i ++) {
+        NSMutableArray *rowDicArr = [NSMutableArray arrayWithCapacity:0];
+        for (NSInteger j = 0; j < 5; j ++) {
+            NSString *title = [NSString stringWithFormat:@"section:%ld row:%ld", (long)i, (long)j];
+            NSDictionary *rowDic = @{
+                kRow_title : title ? : @"",
+                kRow_detailTitle : @"",
+                kRow_rowHeight : @(44),
+            };
+            [rowDicArr addObject:rowDic];
+        }
+        
+        NSString *headerTitle = [NSString stringWithFormat:@"section header:%ld", i];
+        NSString *footerTitle = [NSString stringWithFormat:@"section footer:%ld", i];
+        NSDictionary *sectionDic = @{
+            kSec_rowContent : rowDicArr,
+            kSec_headerTitle : headerTitle,
+            kSec_headerHeight : @(33),
+            kSec_footerTitle : footerTitle,
+            kSec_footerHeight : @(33),
         };
-        [rowDicArr addObject:rowDic];
+        [sectionDicArr addObject:sectionDic];
     }
-    
-    NSDictionary *sectionDic = @{
-        kSec_headerTitle : @"案例介绍",
-        kSec_rowContent : rowDicArr,
-    };
-    [sectionDicArr addObject:sectionDic];
     
     NSArray *sections = [MSYCommonTableSection sectionsWithData:sectionDicArr];
     

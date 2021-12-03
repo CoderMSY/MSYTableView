@@ -14,9 +14,42 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    } else {
+        // Fallback on earlier versions
+    }
+    
     MSYViewController *ctr = [[MSYViewController alloc] init];
     UINavigationController *navCtr = [[UINavigationController alloc] initWithRootViewController:ctr];
+    
+    NSDictionary *dic = @{
+        NSForegroundColorAttributeName : [UIColor blackColor],
+        NSFontAttributeName : [UIFont systemFontOfSize:18 weight:UIFontWeightMedium]
+    };
+    if (@available(iOS 15.0, *)) {
+        UINavigationBarAppearance * barAppearance = [UINavigationBarAppearance new];
+//        barAppearance.
+        barAppearance.backgroundColor = [UIColor whiteColor];
+        barAppearance.shadowColor = [UIColor whiteColor];
+        barAppearance.titleTextAttributes = dic;
+//        barAppearance.backgroundEffect = nil;
+        navCtr.navigationBar.scrollEdgeAppearance = barAppearance;
+        navCtr.navigationBar.standardAppearance = barAppearance;
+    } else {
+        //背景色
+        navCtr.navigationBar.barTintColor = [UIColor whiteColor];
+        navCtr.navigationBar.titleTextAttributes = dic;
+        [navCtr.navigationBar setShadowImage:[UIImage new]];
+        [navCtr.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        
+    }
+    //不透明
     navCtr.navigationBar.translucent = NO;
+    //navigation控件颜色
+    navCtr.navigationBar.tintColor = [UIColor blackColor];
+    
     self.window.rootViewController = navCtr;
     [self.window makeKeyAndVisible];
     

@@ -309,6 +309,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = SimonMiao;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = AY9XK347CD;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -564,6 +567,7 @@
 			baseConfigurationReference = 1321A94E4E24DDD49860BA2E /* Pods-MSYTableView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AY9XK347CD;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MSYTableView/MSYTableView-Prefix.pch";
 				INFOPLIST_FILE = "MSYTableView/MSYTableView-Info.plist";
@@ -580,6 +584,7 @@
 			baseConfigurationReference = 005CCA9B0FC13A2673D011D6 /* Pods-MSYTableView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AY9XK347CD;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MSYTableView/MSYTableView-Prefix.pch";
 				INFOPLIST_FILE = "MSYTableView/MSYTableView-Info.plist";

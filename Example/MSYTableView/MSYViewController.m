@@ -31,6 +31,7 @@ static NSString *const kTitle_refresh = @"上拉下拉的cell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Example";
     
     [self.view addSubview:self.homeView];
     [self initConstraints];
@@ -67,6 +68,8 @@ static NSString *const kTitle_refresh = @"上拉下拉的cell";
     
     NSDictionary *sectionDic = @{
         kSec_headerTitle : @"案例介绍",
+        kSec_headerHeight : @(33),
+        kSec_footerHeight : @(kSectionHeaderHeight_zero),
         kSec_rowContent : rowDicArr,
     };
     [sectionDicArr addObject:sectionDic];

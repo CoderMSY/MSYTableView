@@ -61,6 +61,10 @@ static NSUInteger const kTable_firstPageIndex = 0;
         self.tableView.dataSource = self.adapter;
         
         [self initConstraints];
+        
+        if (@available(iOS 15.0, *)) {
+            self.tableView.sectionHeaderTopPadding = 0;
+        }
     }
     return self;
 }
